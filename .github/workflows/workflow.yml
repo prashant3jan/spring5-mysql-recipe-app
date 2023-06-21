@@ -1,4 +1,8 @@
 -name: Upload coverage reports to Codecov
+-on:
+  push:
+    branches:
+      - 'master'
 -uses: codecov/codecov-action@v3
 -with:
    token: ${{ secrets.CODECOV_TOKEN }}
@@ -7,13 +11,7 @@
    name: codecov-umbrella
    fail_ci_if_error: true
    verbose: true
-   on :
-     push :
-       branches :
-         - main
-     pull_request :
-       branches :
-         - main
+
 
 
 
