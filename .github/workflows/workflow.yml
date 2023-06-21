@@ -7,3 +7,16 @@
    name: codecov-umbrella
    fail_ci_if_error: true
    verbose: true
+   on :
+     push :
+       branches :
+         - main
+     pull_request :
+       branches :
+         - main
+
+
+
+
+
+
