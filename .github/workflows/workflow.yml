@@ -1,4 +1,4 @@
-- name: Upload coverage reports to Codecov
+ -name: Upload coverage reports to Codecov
   - uses: actions/checkout@master
   - uses: codecov/codecov-action@v3
     with:
