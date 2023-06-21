@@ -1,13 +1,35 @@
--name: Upload coverage reports to Codecov
--on: push
--uses: codecov/codecov-action@v3.1.4
--with:
-  token: ${{ secrets.CODECOV_TOKEN }}
-  files: './coverage1.xml,./coverage2.xml'
-  flags: unittests
-  name: codecov-umbrella
-  fail_ci_if_error: true
-  verbose: true
+-name: Example workflow for Codecov
+-on:
+  push:
+    branches:
+      - main
+
+-jobs:
+  run:
+    runs-on: windows-latest
+    env:
+      JAVA_HOME: C:\java\jdk-11
+      PATH: C:\java\jdk-11\bin;%PATH%
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Generate coverage report
+        run: mvn clean test
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
 
 
