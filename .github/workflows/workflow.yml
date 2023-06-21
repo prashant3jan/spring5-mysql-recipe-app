@@ -2,7 +2,10 @@
 -on:
   push:
     branches:
-      - 'master'
+      - master
+  pull_request:
+    branches:
+      - master
 -uses: codecov/codecov-action@v3
 -with:
    token: ${{ secrets.CODECOV_TOKEN }}
