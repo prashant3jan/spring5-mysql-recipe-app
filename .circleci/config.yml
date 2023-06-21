@@ -47,4 +47,4 @@ jobs:
           name: Send to CodeCov
           command: bash <(curl -s https://codecov.io/bash)
 orbs:
-  codecov/codecov@3.2.4
+  codecov: codecov/codecov@3.2.5
