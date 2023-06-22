@@ -1,5 +1,9 @@
 -name: Upload coverage reports to Codecov
--on: push
+-on:
+   push:
+     branches: [master]
+   pull_request:
+     branches: [master]
 #-uses: codecov/codecov-action@v3
 -uses: prashant3jan/spring5-mysql-recipe-app@v3
 -with:
