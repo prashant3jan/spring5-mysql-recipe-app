@@ -1,0 +1,15 @@
+name: Upload coverage reports to Codecov
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@HEAD
+      - name: Use local my-action
+        uses: ./.github/actions
