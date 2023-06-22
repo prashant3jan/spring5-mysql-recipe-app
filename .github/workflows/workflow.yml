@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@HEAD
 
       - name: Upload coverage reports to Codecov
         uses: prashant3jan/spring5-mysql-recipe-app@v3
