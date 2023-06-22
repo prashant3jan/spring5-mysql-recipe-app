@@ -1,17 +1,26 @@
--name: Upload coverage reports to Codecov
--on:
-   push:
-     branches:
-       -master
-   pull_request:
-     branches:
-       -master
-#-uses: codeco[mv/codecov-action@v3
--uses: prashant3jan/spring5-mysql-recipe-app@v3
--with:
-  token: ${{ secrets.CODECOV_TOKEN }}
-  files: './coverage1.xml,./coverage2.xml'
-  flags: unittests
-  name: codecov-umbrella
-  fail_ci_if_error: true # optional (default = false)
-  verbose: true # optional (default = false)
+name: Upload coverage reports to Codecov
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Upload coverage reports to Codecov
+        uses: prashant3jan/spring5-mysql-recipe-app@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: './coverage1.xml,./coverage2.xml'
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
