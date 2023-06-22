@@ -1,39 +1,12 @@
--name: Example workflow for Codecov
--on:
-  push:
-    branches:
-      - main
-
--jobs:
-  run:
-    runs-on: windows-latest
-    env:
-      JAVA_HOME: C:\java\jdk-11
-      PATH: C:\java\jdk-11\bin;%PATH%
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-
-      - name: Build with Maven
-        run: mvn clean package
-
-      - name: Generate coverage report
-        run: mvn clean test
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-
-
-
-
-
-
-
+version: 2
+updates:
+  - package-ecosystem: maven
+    directory: /
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
