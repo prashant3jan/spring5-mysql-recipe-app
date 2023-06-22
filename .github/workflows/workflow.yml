@@ -13,10 +13,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@HEAD
+        uses: actions/checkout@v1
 
       - name: Upload coverage reports to Codecov
-        uses: prashant3jan/spring5-mysql-recipe-app@HEAD
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: './coverage1.xml,./coverage2.xml'
