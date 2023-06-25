@@ -31,4 +31,16 @@ jobs:
           fail_ci_if_error: true
           verbose: true
 
+  codecov_report:
+    needs: build
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3.1.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
