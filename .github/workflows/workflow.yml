@@ -19,10 +19,9 @@ jobs:
         with :
           java-version : 11
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3.1.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          version: "v0.1.15"
           files: './coverage1.xml,./coverage2.xml'
           flags: unittests
           name: codecov-umbrella
